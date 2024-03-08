@@ -38,7 +38,7 @@ function getTime(date) {
 /**
  * Returns the name of the day of the week for a given date string.
  *
- * @param {string} date - date and time.
+ * @param {string} date - date and time.getTime
  * @return {string} the name of the day of the week
  *
  * @example:
@@ -46,8 +46,11 @@ function getTime(date) {
  * '03 Dec 1995 00:12:00 UTC' => 'Sunday'
  * '2024-01-30T00:00:00.000Z' => 'Tuesday'
  */
-function getDayName(/* date */) {
-  throw new Error('Not implemented');
+function getDayName(date) {
+  const options = {
+    weekday: 'long',
+  };
+  return new Intl.DateTimeFormat('en-US', options).format(new Date(date));
 }
 
 /**
